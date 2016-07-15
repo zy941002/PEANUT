@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+		body{background:white;}
+	</style>
+</head>
+<body>
+	<canvas id="can"></canvas>
+</body>
+
+<script type="text/javascript">
+window.onload=function(){
+	WIN_WIDTH = document.documentElement.clientWidth;
+	WIN_HEIGHT = document.documentElement.clientHeight;
+    Canvas = document.getElementById("can");
+	CTX = Canvas.getContext("2d");
+	BALLS=[]
+	tangle=0;
+	speed=1;
+	Canvas.pillar={
+		height:150,
+	}
+	Canvas.init=function(){
+		this.width = WIN_WIDTH;
+		this.height = WIN_HEIGHT;
+	}
+	Canvas.drawBackground = function(){
+		bground={
+			width:WIN_WIDTH/2,
+			height:WIN_HEIGHT/2
+		}
+		CTX.save();
+		CTX.beginPath();
+		CTX.fillStyle="rgba(198,237,237,1)";
+		CTX.fillRect(WIN_WIDTH/4,WIN_HEIGHT/10,bground.width,bground.height);
+		CTX.closePath();
+		CTX.fill();
+		CTX.restore();
+	}
+
+	Canvas.drawPillar = function(){
+		CTX.save();
+		CTX.beginPath();
+		CTX.fillStyle="white";
+		CTX.translate(WIN_WIDTH/2,WIN_HEIGHT/2);
+		CTX.moveTo(0,0);
+		CTX.lineTo(20,0);
+		CTX.lineTo(10,-Canvas.pillar.height);
+		CTX.closePath();
+		CTX.fill();
+
+		CTX.restore();
+	}
+	Canvas.drawleaf=function(tangle){
+		var R =20;
+		var X=WIN_WIDTH/2 -2*R+50;
+		var Y =WIN_HEIGHT/2-Canvas.pillar.height;
+		CTX.save();
+		CTX.beginPath();
+		CTX.arc(X-(2*R*Math.cos(tangle)),Y-2*R*Math.sin(tangle), 2*R, tangle, Math.PI+   tangle, false)
+		CTX.fillStyle="white";		
+		CTX.closePath();
+		CTX.fill();	
+		CTX.restore();
+	}
+	function rotate(){
+		tangle +=(speed*1/32)*Math.PI;
+		Canvas.drawleaf(tangle);
+		Canvas.drawleaf(tangle+Math.PI);
+		Canvas.drawleaf(tangle+3/2*Math.PI);
+		Canvas.drawleaf(tangle+1/2*Math.PI);
+	}
+	Canvas.init();
+	setInterval(function(){
+		CTX.clearRect(0,0,WIN_WIDTH,WIN_HEIGHT);
+		Canvas.drawBackground();
+		Canvas.drawPillar();
+		rotate();
+	},20)
+
+}	
+</script>
+</html>
