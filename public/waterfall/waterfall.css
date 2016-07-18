@@ -14,6 +14,8 @@ body{
 .box{
 	padding: 20px 0 0 20px;
 	float: left;
+	/*position: absolute;*/
+
 }
 .pic{
 	padding: 5px;

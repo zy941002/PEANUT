@@ -5,7 +5,9 @@
 	count = $(".box").length;
 	aWidth = $(window).width();
 	cols = Math.floor(aWidth/aBoxW);
-	
+	document.body.onload=function(){
+		window.href="http://img.zcool.cn/community/013cb15648986a32f87512f6d87dc8.gif"
+	}
 	var pics = {
 		"data":[{"src":"1.png"},{"src":"2.png"},{"src":"4.png"}]
 	}
