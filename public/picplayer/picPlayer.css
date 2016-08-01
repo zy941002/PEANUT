@@ -1,0 +1,24 @@
+*{margin: 0;padding:0;}
+body{position: relative;margin: 0 auto; color: rgb(213, 214, 226);background: #494a5f;}
+body h1{margin: 0 auto;background: #66677c;height: 100px;line-height: 100px;}
+@media (min-width: 768px) {
+	#container{ overflow: hidden; width:1170px; height: 550px;position: relative;margin: 0 auto;}
+	#container .parent{position: absolute;width: 1560px;height: 550px;}
+	#container .parent .lists{position: absolute;perspective: 800px;}
+	#container .cnt-list {width: 350px;height: 550px;overflow: hidden;float:left;list-style: none;margin: 20px;background: white;transform-style: preserve-3d;}
+	#container .cnt .imgzone {width: 100%;height: 300px;overflow: hidden;}
+	#container .content{font-size: 15px;color: #676767;line-height: 24px;margin-bottom: 14px;padding: 0 20px;}
+	#container .cnt-list img{width: 100%;height: 300px;}
+    img:hover{height: 500px;cursor: pointer;
+    	transform-origin:center center;
+		-webkit-transform: scale(1.08);
+		   -moz-transform: scale(1.08);
+		    -ms-transform: scale(1.08);
+		     -o-transform: scale(1.08);
+		        transform: scale(1.08);
+		        transition: all 1500ms}
+	#container .cnt-list .more-btn{background: #e7989a;width:100px;height: 30px;line-height: 30px;border-radius:0 0 5px 0;color: white;text-align: center;}
+	#container .cnt-list .more-btn:hover{background: black;transition: all 2000ms;cursor: pointer;}
+	time{font-size: 24px;}
+	#container .artcle-title{font-weight: 600;color: black;color: #808080;margin: 20px auto;}
+}

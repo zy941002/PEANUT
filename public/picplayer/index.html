@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LOGIN</title>
+	<link rel="stylesheet" type="text/css" href="picPlayer.css">
+	<script type="text/javascript">
+	window.onload = function(){
+		function $(id){
+			return document.getElementById(id);
+		}
+		var container = $("container")
+		var left = $("left")
+		var right = $("right");
+		var lists = document.querySelector(".lists")
+		var cntlist = document.querySelector(".cnt-list");
+		var picPlayer ={
+			step :0,
+			left:lists.style.left,
+			newLEFT:0,
+			offset:-390,
+			picNum:15
+		}
+		picPlayer.animate=function(){
+			var me= this;
+			me.step = 0 ;
+			var oldLEFT = Number(lists.style.left.split("px")[0]);	
+			function change(){
+				if(Math.abs(me.step)<Math.abs(me.offset)){
+					me.step += (me.offset/50);
+					var newLEFT = oldLEFT+me.step;
+					lists.style.left =newLEFT + "px"
+					if(newLEFT<=(me.picNum-1)*me.offset){
+						lists.style.left = 0+"px"
+					}else if(newLEFT>0) {
+						lists.style.left = -(me.picNum-1)*me.offset+"px";
+					}
+					setTimeout(change,5);
+				}
+			}
+			change();
+		}
+		setInterval(function(){
+			right.onclick();
+		},3000)
+		right.onclick = function(){
+		picPlayer.animate();
+		}	
+	}	
+	</script>
+	
+
+</head>
+<body>
+	<center><h1>响应式文章卡片设计</h1></center>
+	<div id="container">
+		<div class="parent">
+			<ul class="lists">
+				<li class="cnt-list">
+					<div class="imgzone">
+						<img src="images/17.jpg">
+					</div>
+					<div class="content"">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+						<time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+
+				<li class="cnt-list">
+					<img src="images/1.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+						<time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/2.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/3.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/4.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/5.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/6.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/7.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/8.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>		
+				<li class="cnt-list">
+					<img src="images/9.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/10.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/11.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/12.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/13.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/14.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/15.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/16.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/17.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+				<li class="cnt-list">
+					<img src="images/1.jpg">
+					<div class="content">
+						<h2 class="artcle-title">title</h2>
+						<p>
+		                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum mauris. Praesent vehicula gravida dolor, ac efficitur sem sagittis.
+		                </p>
+		                <time>2016-8-1</time>
+						<div class="more-btn">READ MORE</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id = "left"></div>
+	<div id = "right"></div>
+</body>
+
+</html>
