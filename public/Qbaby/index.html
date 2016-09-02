@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>萌BABY</title>
+</head>
+<body>
+	<div id="cuteBaby">
+		<div class="ear left-ear"></div>
+		<div class="ear right-ear"></div>
+		<div class="body">
+			<div class="eye blink">
+				<div class="inner">
+					<div class="pupil">
+						<div class="tear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="eye blink">
+				<div class="inner">
+					<div class="pupil">
+						<div class="tear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hand left-hand"></div>
+		<div class="hand right-hand"></div>
+		<div class="foot left-foot"></div>
+		<div class="foot right-foot"></div>
+	</div>
+</body>
+<script type="text/javascript" src="./JQ.js"></script>
+<script type="text/javascript">
+// 可耻的全局变量
+var gloabal = {
+	WIN_WIDTH : $(document).width(),
+	WIN_HEIGHT:$(document).height()
+}
+var Qbaby={
+	//眼睛
+	$left : $(".eye").eq(0),
+	$right:$(".eye").eq(1),
+	
+	// 瞳仁
+	$lPupil:$(".pupil").eq(0),
+	
+	$rPupil:$("pupil").eq(1)
+}
+	
+function follow(x,y) {
+
+}
+$(document).mousemove(function(e) {
+	follow(e.pageX,e.pageY)
+});
+
+
+</script>
+<style type="text/css">
+#cuteBaby{
+	position: relative;
+	width: 500px;
+	height: 100%;
+	margin: 0 auto;
+}
+.ear{
+	width: 140px;
+	height: 100px;
+	background: rgb(231,185,213);
+	border-radius: 70px 70px 0 0/100px 100px 0 0;
+	z-index: -1;
+	position: relative;
+}
+#cuteBaby .left-ear{
+	transform: rotate(-30deg) skew(10deg);
+	position: absolute;
+	top:-20px;
+	left: 65px;
+	
+}
+#cuteBaby .left-ear:before{
+	content:"";
+	width: 80px; 
+	height: 60px; 
+	display: block;
+	border-radius: 40px 40px 0 0/60px 60px 0 0;
+	background: rgb(55,30,26);
+	position: absolute;
+	left: 20px;
+	top:20px;
+}
+#cuteBaby .right-ear:before{
+	content:"";
+	width: 80px; 
+	height: 60px; 
+	display: block;
+	border-radius: 40px 40px 0 0/60px 60px 0 0;
+	background: rgb(55,30,26);
+	position: absolute;
+	top:20px;
+	right: 20px;	
+}
+
+#cuteBaby .right-ear{
+	transform: rotate(30deg) skew(-10deg);
+	position: absolute;
+	right:65px;
+	top:-20px;
+}
+.body{
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	margin: 100px auto 0;
+	background: rgb(231,185,213);
+	z-index: 100;
+	display: flex;
+	justify-content: space-around;
+}
+.eye{
+	width: 100px;
+	height: 100px;
+	background: white;
+	margin: 70px 0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: blink 5s infinite;
+}
+.inner{
+	width: 75px;
+	height: 75px;
+	content: "";
+	display: block;
+	border-radius: 50%;
+	background: rgb(120,175,169);
+	display: flex;
+	justify-content: center;
+}
+.pupil{
+	width: 60px;
+	height: 50px;
+	background:rgb(79,128,124);
+	border-radius: 30px 30px 25px 25px;
+	display: block;
+}
+.tear{
+	width: 20px;
+	height: 20px;
+	background: white;
+	border-radius: 50%;
+}
+.hand{
+	width: 100px;
+	height: 50px;
+	display: block;
+	background: rgb(231,185,213);
+}
+.left-hand{
+	border-radius: 100px 0px 0px 100px/25px 0px 0 25px;
+	transform: rotate(15deg) skew(10deg);
+	position: absolute;
+	top:150px;
+	left: 40px;
+}
+.right-hand{
+	border-radius: 0px 100px 100px 0px/0px 25px 25px 0px;
+	transform: rotate(-15deg) skew(-10deg);
+	position: absolute;
+	top:150px;
+	right: 40px;
+}
+.foot{
+	width: 50px;
+	height: 80px;
+	background: rgb(231,185,213);
+	border-radius: 25px/40px;
+	position: absolute;
+}
+.left-foot{
+	top:250px;
+	left: 140px;
+	transform: rotate(30deg) skew(-15deg);
+}
+.right-foot{
+	top:250px;
+	right: 140px;
+	transform: rotate(-30deg) skew(15deg);
+}
+@keyframes blink{
+	0%{
+		transform: rotate(12deg);
+	}
+	1%{
+		transform: rotateX(102deg) rotateY(12deg);
+	}
+	2%{
+		transform: rotate(12deg);
+	}
+}
+</style>
+</html>

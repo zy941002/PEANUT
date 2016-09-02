@@ -30,8 +30,10 @@ module.exports = function(app) {
   app.get('/login', function (req, res) {
     res.sendfile('index')
   });
-  app.get('/picPlayer', function (req, res) {
+  app.get('/night', function (req, res) {
+    res.sendfile('index')
+  });
+   app.get('/Qbaby', function (req, res) {
     res.sendfile('index')
   });
 };
-
