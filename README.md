@@ -1,14 +1,14 @@
 <h1>Recorde the Demo</h1>
 <hr/>
-<a  class="anchor" href="http://115.28.132.82:3333/loading">Loading</a>
+<a  class="anchor" href="http://inkzhou.com/PEANUT/public/loading/index.html">Loading</a>
 <hr/>
-<a class="anchor" href="http://115.28.132.82:3333/blink">Blink</a>
+<a class="anchor" href="http://inkzhou.com/PEANUT/blink.html">Blink</a>
 <hr/>
-</h1><a class="anchor" href="http://115.28.132.82:3333/night">night</a>
+</h1><a class="anchor" href="http://inkzhou.com/PEANUT/public/night/index.html">night</a>
 <hr/>
-<a class="anchor" href="http://115.28.132.82:3333/login">LOGIN</a>
+<a class="anchor" href="http://inkzhou.com/PEANUT/public/login/index.html">LOGIN</a>
 <hr/>
-<a class="anchor" href="http://115.28.132.82:3333/picplayer">PicPlayer</a>
+<a class="anchor" href="http://inkzhou.com/PEANUT/public/picplayer/index.html">PicPlayer</a>
 <hr/>
-<a class="anchor" href="http://115.28.132.82:3333/Qbaby">Qbaby</a>
+<a class="anchor" href="http://inkzhou.com/PEANUT/public/Qbaby/index.html">Qbaby</a>
 <hr/>
