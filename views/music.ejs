@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<p>
+		Volme:<input id = "controll" type="range" value="60" min="0" max = "100">
+	</p>
+	<div id="stage">
+		
+	</div>
+
+	<menu class="menu" id='menu'>
+		<div class="container">
+			<% music.forEach((item)=>{ %>
+				<li title = "<%=item%>" class="music"><%=item%></li>			
+			<% }) %>
+		</div>
+	</menu>
+	
+</body>
+<style type="text/css">
+	*{
+		margin: 0;
+		background: black;
+		padding: 0;
+	}
+	#stage {
+		height: 600px;
+	}
+	.music{
+		z-index: 1000;
+		height: 50px;
+		color:white;
+		margin: 10px 0;
+		background: red;
+		width: 100%;
+	}
+	li{
+		list-style: none;
+	}
+</style>
+<script type="text/javascript">
+let AC =  new (window.AudioContext||window.webkitAudioContext)()
+var gainNode = AC[AC.createGain?"createGain":"createGainNiode"]()
+var  analyser= AC.createAnalyser()
+var size=128;
+analyser.connect(gainNode)
+analyser.fftSize = size*2
+gainNode.connect(AC.destination);
+
+var stage = $(`#stage`)[0]
+var canvas = document.createElement(`canvas`);
+var ctx = canvas.getContext(`2d`)
+
+
+stage.appendChild(canvas)
+function $(dom){
+	return document.querySelectorAll(dom);
+}
+function resize (){
+	height = stage.clientHeight;
+	width = stage.clientWidth;
+	canvas.height = height;
+	canvas.width  = width;
+	var line = ctx.createLinearGradient(0,0,0,height)
+	line.addColorStop(0, "rgba(61,243,255,1)");
+	line.addColorStop(1, 'rgb(61,243,255)');
+	ctx.shadowColor="white";
+	ctx.fillStyle =line;
+}
+
+resize()
+window.onresize = resize;
+
+window.onload = function() {	
+	let music = $(`.music`);
+	let cmd = document.getElementById(`controll`)	
+	cmd.onchange=function(){
+		cmdVol(this.value/this.max)
+	}	
+	music.forEach((item,index)=>{   
+		item.onclick  = function() {
+			load(this.title)
+		}
+	})
+
+
+var source=null;
+var count = 0;
+var xhr = new XMLHttpRequest();
+function load(url){	
+	var n =++count;
+	source && source[source.stop?"stop":"noteOff"]()
+	xhr.abort()
+	xhr.responseType = `arraybuffer`;
+	xhr.open("GET",url, true);
+	xhr.onload = function() {
+		if(n!=count) return;
+		AC.decodeAudioData(xhr.response,(buffer)=>{
+  		let bufferSource = AC.createBufferSource()
+  		bufferSource.buffer = buffer
+  		bufferSource.connect(analyser)
+  		bufferSource[bufferSource.start?"start":"noteNo"](0); 
+  		source = bufferSource;
+  		},(err)=>{
+  			console.log(err)
+  			})
+		}
+		xhr.send();
+	}
+}
+
+analyse();
+function draw(arr){
+	ctx.clearRect(0,0,width,height)	
+	var w = width/size;
+	for (var i = 0; i < size; i++) {
+		var h = arr[i]/256*height;	
+		ctx.fillRect(w*i,(height-h)/3,w*0.7,h/3);
+		ctx.fillRect(w*i,height/2,w*0.7,h/3);
+	}
+}
+function cmdVol(percentage){
+	gainNode.gain.value = percentage * percentage
+}
+function analyse(){
+	var arr = new Uint8Array(analyser.frequencyBinCount)
+	requestAnimationFrame = window.requestAnimationFrame
+	draw(arr)
+	function v(){	
+		analyser.getByteFrequencyData(arr)
+		draw(arr)                  
+		requestAnimationFrame(v)
+	}
+	requestAnimationFrame(v)
+}
+function  initBox(lists) {
+	for (let i = 0; i < lists; i++) {
+			let trans= `rotateY(${i*60}deg) translateZ(180px)`
+			lists[i].style.transform = trans
+	}		
+}
+/**
+ * buffersourceNode --- AnalyserNode-----GainNode---AudioDestinationNode
+ */
+
+</script>
+</html>
