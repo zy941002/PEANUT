@@ -29,14 +29,16 @@
 	}
 	#stage {
 		height: 600px;
+		width: 100%;
 	}
 	.music{
 		z-index: 1000;
 		height: 50px;
+		float: left;
+		width: 30%;
+		display: inline-block;
 		color:white;
 		margin: 10px 0;
-		background: red;
-		width: 100%;
 	}
 	li{
 		list-style: none;
@@ -54,8 +56,6 @@ gainNode.connect(AC.destination);
 var stage = $(`#stage`)[0]
 var canvas = document.createElement(`canvas`);
 var ctx = canvas.getContext(`2d`)
-
-
 stage.appendChild(canvas)
 function $(dom){
 	return document.querySelectorAll(dom);
@@ -66,9 +66,8 @@ function resize (){
 	canvas.height = height;
 	canvas.width  = width;
 	var line = ctx.createLinearGradient(0,0,0,height)
-	line.addColorStop(0, "rgba(61,243,255,1)");
+	line.addColorStop(0, "hsl(206, 82%, 67%)");
 	line.addColorStop(1, 'rgb(61,243,255)');
-	ctx.shadowColor="white";
 	ctx.fillStyle =line;
 }
 
@@ -84,9 +83,10 @@ window.onload = function() {
 	music.forEach((item,index)=>{   
 		item.onclick  = function() {
 			load(this.title)
+			analyse(this.title);
 		}
 	})
-
+// music[0].onclick();
 
 var source=null;
 var count = 0;
@@ -113,35 +113,33 @@ function load(url){
 	}
 }
 
-analyse();
-function draw(arr){
+
+function draw(arr,title){
 	ctx.clearRect(0,0,width,height)	
 	var w = width/size;
 	for (var i = 0; i < size; i++) {
 		var h = arr[i]/256*height;	
 		ctx.fillRect(w*i,(height-h)/3,w*0.7,h/3);
+		ctx.font = "48px serif";
+		ctx.shadowColor=`rgba(255,255,255,0.1)`
+		ctx.shadowBlur=0.01*h;
+		ctx.fillText(title.replace('.mp3',""), width/2, height/2-24);
 		ctx.fillRect(w*i,height/2,w*0.7,h/3);
 	}
 }
 function cmdVol(percentage){
 	gainNode.gain.value = percentage * percentage
 }
-function analyse(){
+function analyse(title){
 	var arr = new Uint8Array(analyser.frequencyBinCount)
 	requestAnimationFrame = window.requestAnimationFrame
-	draw(arr)
+	draw(arr,title)
 	function v(){	
 		analyser.getByteFrequencyData(arr)
-		draw(arr)                  
+		draw(arr,title)                  
 		requestAnimationFrame(v)
 	}
 	requestAnimationFrame(v)
-}
-function  initBox(lists) {
-	for (let i = 0; i < lists; i++) {
-			let trans= `rotateY(${i*60}deg) translateZ(180px)`
-			lists[i].style.transform = trans
-	}		
 }
 /**
  * buffersourceNode --- AnalyserNode-----GainNode---AudioDestinationNode
