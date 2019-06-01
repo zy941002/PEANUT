@@ -134,16 +134,12 @@ function analyse(title){
 	var arr = new Uint8Array(analyser.frequencyBinCount)
 	requestAnimationFrame = window.requestAnimationFrame
 	draw(arr,title)
-	function v(){	
+	function v(){
 		analyser.getByteFrequencyData(arr)
-		draw(arr,title)                  
+		draw(arr,title)
 		requestAnimationFrame(v)
 	}
 	requestAnimationFrame(v)
 }
-/**
- * buffersourceNode --- AnalyserNode-----GainNode---AudioDestinationNode
- */
-
 </script>
 </html>

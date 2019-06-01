@@ -53,6 +53,7 @@
 		var Background = {
 			BALLS:[]
 		}
+
 		function drawBall(x,y,r){
 			CTX.fillStyle="rgba(255,255,255,0.5)";
 			CTX.beginPath();
@@ -60,6 +61,7 @@
 			CTX.closePath();
 			CTX.fill();
 		}
+
 		Background.drawBalls = function(){
 			var me = this;
 			CTX.clearRect(0,0,WIN_WIDTH,WIN_HEIGHT);
@@ -67,27 +69,30 @@
 				drawBall(me.BALLS[i].pos.x,me.BALLS[i].pos.y,me.BALLS[i].r)
 			}
 		}
+
 		Background.getBalls = function(num) {
 			var me =this;
 			for (var i = 0; i < num; i++) {
 				var ball ={
-					pos:{
-						x:Math.random()*WIN_WIDTH,
-						y:Math.random()*WIN_HEIGHT,
+					pos: {
+						x: Math.random()*WIN_WIDTH,
+						y: Math.random()*WIN_HEIGHT,
 					},
-					r:4,
-					vx:Math.random()*1,  //水平速度
-					vy:Math.random()*1,  //垂直速度
-					a:Math.random()*1,
+					r: 4,
+					vx: Math.random()*1,  //水平速度
+					vy: Math.random()*1,  //垂直速度
+					a: Math.random()*1,
 				}
 				me.BALLS.push(ball);
 			}
 		};
-		
+
 		Background.drawLine = function() {
 			for (var i = 0; i < BALLS.length; i++) {
 				for (var j = 0; j < BALLS.length; j++) {
-					if(BALLS[i]==BALLS[j]){break;}
+					if (BALLS[i]==BALLS[j]) {
+						break;
+					}
 					CTX.save();
 					CTX.beginPath();
 					CTX.lineWidth="1";
@@ -96,27 +101,29 @@
 					CTX.lineTo(BALLS[j].pos.x,BALLS[j].pos.y);
 					CTX.stroke();
 					CTX.restore();
-				}	
+				}
 			}
 		};
+
 		Background.getLines = function(){
 			var me = this;
 			for (var i = 0; i < me.BALLS.length; i++) {
 			 	for (var j = i; j < me.BALLS.length; j++) {
 			 		var dis = Math.sqrt(Math.pow(me.BALLS[i].pos.x-me.BALLS[j].pos.x,2)+Math.pow(me.BALLS[i].pos.y-me.BALLS[j].pos.y,2))
-					if(me.BALLS[i]===me.BALLS[j]||dis>120){continue;}
-					else{
+					if (me.BALLS[i] === me.BALLS[j] || dis > 120){
+						continue;
+					} else {
 						CTX.save();
 						CTX.beginPath();
-			    		CTX.lineWidth=".5";
+			    	CTX.lineWidth=".5";
 						CTX.strokeStyle="rgba(255,255,255,0.5)"
 						CTX.moveTo(me.BALLS[i].pos.x,me.BALLS[i].pos.y);
 						CTX.lineTo(me.BALLS[j].pos.x,me.BALLS[j].pos.y);
 						CTX.stroke();
-						CTX.restore();			
+						CTX.restore();
 					}
-					}	
 				}
+			}
 		}
 	function upDate(){
 		this.BALLS.forEach(function(ball){
@@ -141,9 +148,7 @@
 	}
 
 	main();
-
 }
-	
 </script>
 
 </html>
