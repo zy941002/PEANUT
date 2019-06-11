@@ -5,8 +5,8 @@ Canvas.ctx =document.getElementById('myCanvas').getContext("2d");
 
 Canvas.size=function  (WINDOW_HEIGHT,WINDOW_HEIGHT) {
     // var width = document.getElementById('myCanvas');
-    this.width=WINDOW_HEIGHT;
-    this.height=WINDOW_HEIGHT;
+    this.width = WINDOW_HEIGHT;
+    this.height = WINDOW_HEIGHT;
 }
 
 Canvas.Point=function(x,y){

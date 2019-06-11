@@ -5,5 +5,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <% data.forEach((item)=>{ %>
+      <a href="<%=item%>"><%=item%></a>
+    <% }) %>
   </body>
 </html>

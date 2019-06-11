@@ -35,19 +35,17 @@
 // 可耻的全局变量
 var gloabal = {
 	WIN_WIDTH : $(document).width(),
-	WIN_HEIGHT:$(document).height()
+	WIN_HEIGHT: $(document).height()
 }
 var Qbaby={
 	//眼睛
 	$left : $(".eye").eq(0),
 	$right:$(".eye").eq(1),
-	
 	// 瞳仁
 	$lPupil:$(".pupil").eq(0),
-	
 	$rPupil:$("pupil").eq(1)
 }
-	
+
 function follow(x,y) {
 
 }
@@ -64,6 +62,7 @@ $(document).mousemove(function(e) {
 	height: 100%;
 	margin: 0 auto;
 }
+
 .ear{
 	width: 140px;
 	height: 100px;
@@ -72,13 +71,14 @@ $(document).mousemove(function(e) {
 	z-index: -1;
 	position: relative;
 }
+
 #cuteBaby .left-ear{
 	transform: rotate(-30deg) skew(10deg);
 	position: absolute;
 	top:-20px;
 	left: 65px;
-	
 }
+
 #cuteBaby .left-ear:before{
 	content:"";
 	width: 80px; 

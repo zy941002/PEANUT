@@ -9,17 +9,16 @@
 		Volme:<input id = "controll" type="range" value="60" min="0" max = "100">
 	</p>
 	<div id="stage">
-		
+
 	</div>
 
 	<menu class="menu" id='menu'>
 		<div class="container">
 			<% music.forEach((item)=>{ %>
-				<li title = "<%=item%>" class="music"><%=item%></li>			
+				<li title = "<%=item%>" class="music"><%=item%></li>
 			<% }) %>
 		</div>
 	</menu>
-	
 </body>
 <style type="text/css">
 	*{
@@ -74,19 +73,19 @@ function resize (){
 resize()
 window.onresize = resize;
 
-window.onload = function() {	
+window.onload = function() {
 	let music = $(`.music`);
-	let cmd = document.getElementById(`controll`)	
+	let cmd = document.getElementById(`controll`);
 	cmd.onchange=function(){
 		cmdVol(this.value/this.max)
-	}	
-	music.forEach((item,index)=>{   
+	}
+
+	music.forEach((item,index)=>{
 		item.onclick  = function() {
-			load(this.title)
+			load(this.title);
 			analyse(this.title);
 		}
-	})
-// music[0].onclick();
+	});
 
 var source=null;
 var count = 0;
@@ -115,10 +114,10 @@ function load(url){
 
 
 function draw(arr,title){
-	ctx.clearRect(0,0,width,height)	
+	ctx.clearRect(0,0,width,height);
 	var w = width/size;
 	for (var i = 0; i < size; i++) {
-		var h = arr[i]/256*height;	
+		var h = arr[i]/256 * height;
 		ctx.fillRect(w*i,(height-h)/3,w*0.7,h/3);
 		ctx.font = "48px serif";
 		ctx.shadowColor=`rgba(255,255,255,0.1)`

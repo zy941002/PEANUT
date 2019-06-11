@@ -1,13 +1,13 @@
 export default {
 	getUrl:function{
-		return new Promise((resolve,reject)=>{
+		return new Promise((resolve,reject) => {
 			var xhr = new XMLHttpRequest();
 			xhr.responseType = `arraybuffer`;
 			xhr.onload = function() {
-				if(xhr.status==200){
+				if (xhr.status == 200){
 					resolve(xhr)
-				}else{
-					rej(new Error(req.	statusText))
+				} else {
+					reject(new Error(req.statusText))
 				}
 			}
 			xhr.onError = function() {
