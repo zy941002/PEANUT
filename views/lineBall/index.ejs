@@ -22,15 +22,16 @@
     WIN_HEIGHT = document.documentElement.clientHeight;
     Canvas = document.getElementById("can");
     CTX = Canvas.getContext("2d");
-    BALLS=[]
+    BALLS = [];
     Canvas.init=function(){
       this.width = WIN_WIDTH;
       this.height = WIN_HEIGHT;
     }
+
     Canvas.drawball = function(x,y,r) {
-      CTX.fillStyle="white";
+      CTX.fillStyle ="white";
       CTX.beginPath();
-      CTX.arc(x,y,r,0,2*Math.PI,true);
+      CTX.arc(x,y,r,0,2 * Math.PI,true);
       CTX.closePath();
       CTX.fill();
     }
@@ -78,8 +79,8 @@
           }
           CTX.save();
           CTX.beginPath();
-          CTX.lineWidth="1";
-          CTX.strokeStyle="white"
+          CTX.lineWidth = "1";
+          CTX.strokeStyle = "white"
           CTX.moveTo(BALLS[i].pos.x,BALLS[i].pos.y);
           CTX.lineTo(BALLS[j].pos.x,BALLS[j].pos.y);
           CTX.stroke();

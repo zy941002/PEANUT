@@ -1,3 +1,4 @@
+const fs  = require(`fs`);
 const path = require(`path`)
 
 const paths = [
@@ -6,9 +7,8 @@ const paths = [
   '/blink',
   '/lineball',
   '/loading',
-  '/login',
+  '/music',
   '/night',
-  '/picPlayer',
   '/qbaby'
 ];
 

@@ -14,7 +14,7 @@
 	</style>
 </head>
 <body>
-	<canvas id="can">喂喂喂,升级你的浏览器</canvas>
+	<canvas id="can">升级你的浏览器</canvas>
 </body>
 <script type="text/javascript">
   window.onload= function() {
@@ -24,7 +24,7 @@
     CTX = Canvas.getContext("2d");
     BALLS=[];
 
-    Canvas.init=function(){
+    Canvas.init = function(){
       this.width = WIN_WIDTH;
       this.height = WIN_HEIGHT;
     }
@@ -47,7 +47,7 @@
           r: Math.random() * 10,
           vx: Math.random() * 1,  //水平速度
           vy: Math.random() * 3,  //垂直速度
-          a: Math.random() * 5,
+          a: Math.random() * 5
         }
         BALLS.push(ball);
       }

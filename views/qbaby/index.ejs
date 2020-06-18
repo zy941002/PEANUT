@@ -56,59 +56,61 @@ $(document).mousemove(function(e) {
 
 </script>
 <style type="text/css">
-#cuteBaby{
+#cuteBaby {
 	position: relative;
 	width: 500px;
 	height: 100%;
 	margin: 0 auto;
 }
 
-.ear{
+.ear {
+	position: relative;
 	width: 140px;
 	height: 100px;
 	background: rgb(231,185,213);
 	border-radius: 70px 70px 0 0/100px 100px 0 0;
 	z-index: -1;
-	position: relative;
 }
 
-#cuteBaby .left-ear{
+#cuteBaby .left-ear {
 	transform: rotate(-30deg) skew(10deg);
 	position: absolute;
-	top:-20px;
+	top: -20px;
 	left: 65px;
 }
 
-#cuteBaby .left-ear:before{
-	content:"";
-	width: 80px; 
-	height: 60px; 
-	display: block;
-	border-radius: 40px 40px 0 0/60px 60px 0 0;
-	background: rgb(55,30,26);
+#cuteBaby .left-ear:before {
 	position: absolute;
+	display: block;
+	width: 80px;
+	height: 60px;
 	left: 20px;
 	top:20px;
-}
-#cuteBaby .right-ear:before{
-	content:"";
-	width: 80px; 
-	height: 60px; 
-	display: block;
+	content: "";
 	border-radius: 40px 40px 0 0/60px 60px 0 0;
 	background: rgb(55,30,26);
-	position: absolute;
-	top:20px;
-	right: 20px;	
 }
 
-#cuteBaby .right-ear{
+#cuteBaby .right-ear:before {
+	position: absolute;
+	display: block;
+	width: 80px;
+	height: 60px;
+	content: "";
+	border-radius: 40px 40px 0 0/60px 60px 0 0;
+	background: rgb(55,30,26);
+	top:20px;
+	right: 20px;
+}
+
+#cuteBaby .right-ear {
 	transform: rotate(30deg) skew(-10deg);
 	position: absolute;
-	right:65px;
-	top:-20px;
+	right: 65px;
+	top: -20px;
 }
-.body{
+
+.body {
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
@@ -118,7 +120,8 @@ $(document).mousemove(function(e) {
 	display: flex;
 	justify-content: space-around;
 }
-.eye{
+
+.eye {
 	width: 100px;
 	height: 100px;
 	background: white;
@@ -129,74 +132,84 @@ $(document).mousemove(function(e) {
 	justify-content: center;
 	animation: blink 5s infinite;
 }
-.inner{
+
+.inner {
+	display: block;
 	width: 75px;
 	height: 75px;
 	content: "";
-	display: block;
 	border-radius: 50%;
 	background: rgb(120,175,169);
 	display: flex;
 	justify-content: center;
 }
-.pupil{
+
+.pupil {
 	width: 60px;
 	height: 50px;
 	background:rgb(79,128,124);
 	border-radius: 30px 30px 25px 25px;
 	display: block;
 }
-.tear{
+
+.tear {
 	width: 20px;
 	height: 20px;
 	background: white;
 	border-radius: 50%;
 }
-.hand{
+
+.hand {
+	display: block;
 	width: 100px;
 	height: 50px;
-	display: block;
 	background: rgb(231,185,213);
 }
-.left-hand{
-	border-radius: 100px 0px 0px 100px/25px 0px 0 25px;
-	transform: rotate(15deg) skew(10deg);
+
+.left-hand {
 	position: absolute;
 	top:150px;
 	left: 40px;
+	border-radius: 100px 0px 0px 100px/25px 0px 0 25px;
+	transform: rotate(15deg) skew(10deg);
 }
-.right-hand{
+
+.right-hand {
+	position: absolute;
+	top: 150px;
+	right: 40px;
 	border-radius: 0px 100px 100px 0px/0px 25px 25px 0px;
 	transform: rotate(-15deg) skew(-10deg);
-	position: absolute;
-	top:150px;
-	right: 40px;
 }
-.foot{
+
+.foot {
+	position: absolute;
 	width: 50px;
 	height: 80px;
 	background: rgb(231,185,213);
 	border-radius: 25px/40px;
-	position: absolute;
 }
-.left-foot{
+
+.left-foot {
 	top:250px;
 	left: 140px;
 	transform: rotate(30deg) skew(-15deg);
 }
-.right-foot{
+
+.right-foot {
 	top:250px;
 	right: 140px;
 	transform: rotate(-30deg) skew(15deg);
 }
-@keyframes blink{
-	0%{
+
+@keyframes blink {
+	0% {
 		transform: rotate(12deg);
 	}
-	1%{
+	1% {
 		transform: rotateX(102deg) rotateY(12deg);
 	}
-	2%{
+	2% {
 		transform: rotate(12deg);
 	}
 }

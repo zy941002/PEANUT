@@ -29,7 +29,7 @@
     }
 
     Canvas.init();
-    config={
+    config = {
       length: 900,
       x: (WIN_WIDTH - 900) / 2,
       ballX: (WIN_WIDTH - 900) /2 ,
@@ -37,6 +37,7 @@
       vx: 4,
       reach: false
     }
+
     Canvas.drawLine = function(config) {
       CTX.save();
       CTX.beginPath();
@@ -77,10 +78,11 @@
 
     Canvas.drawCircle = function(config){
       CTX.save();
-      CTX.shadowBlur=config.blur;
-      CTX.lineWidth=config.bold;
-      CTX.shadowColor="white";
-      CTX.lineCap="round";
+      CTX.shadowBlur = config.blur;
+      CTX.lineWidth = config.bold;
+      CTX.shadowColor = "white";
+      CTX.lineCap = "round";
+
       if (config.rotated) {
         CTX.strokeStyle=config.strokeStyle.rotate
         CTX.translate(config.x,config.y);
@@ -99,7 +101,7 @@
         CTX.arc(config.x,config.y,config.r,0,dToR(config.degree),true);
       }
 
-      if(config.closePath){
+      if (config.closePath){
         CTX.closePath();
       }
       CTX.stroke();
@@ -119,6 +121,7 @@
         fix: "rgba(61,243,255,0.4)"
       }
     }
+
     var gradient1 = CTX.createLinearGradient(-120, 300, 120, 300);
       gradient1.addColorStop(0, "rgba(61,243,255,.1)");
       gradient1.addColorStop(1, 'rgb(61,243,255)');
@@ -140,19 +143,20 @@
       rotated: true,
       ration: 4
     }
+
     function rotate(){
       rotateConfig.degree += rotateConfig.ration;
     }
+
     Canvas.drawLine(config);
     setInterval(function() {
-      if(!config.reach) {
+      if (!config.reach) {
         Canvas.drawBall(config, 4);
         translateX(config);
       }
       Canvas.drawCircle(rotateConfig);
       rotate();
-
-    },16.7);
+    }, 16.7);
   }
 </script>
 </html>
